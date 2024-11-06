@@ -18,14 +18,23 @@ class Category:
         Category.category_count += 1
         Category.product_count += len(products)
 
+    def __str__(self):
+        """Преобразование объекта в строку"""
+        quantity = 0
+        for product in self.__products:
+            quantity += product.quantity
+        return f"{self.name}, количество продуктов: {quantity} шт."
+
     def add_product(self, product: Product):
+        """Добавление продукта в категорию"""
         self.__products.append(product)
         Category.product_count += 1
         return
 
     @property
     def products(self):
+        """Получение информации о продуктах в виде строки"""
         string = ""
         for product in self.__products:
-            string += f"{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n"
+            string += f"{str(product)}\n"
         return string
