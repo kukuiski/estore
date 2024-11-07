@@ -13,6 +13,12 @@ def product_samsung():
 
 
 @pytest.fixture
+def product_xiaomi():
+    """Фикстура для продукта Xiaomi"""
+    return Product("Xiaomi Mi 11", "128GB, Черный цвет", 60000.0, 10)
+
+
+@pytest.fixture
 def category_smartphones():
     """Фикстура для категории смартфонов с двумя продуктами."""
     return Category(
