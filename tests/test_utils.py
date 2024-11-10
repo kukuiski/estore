@@ -7,8 +7,8 @@ def test_read_json(sample_json_data):
     """Проверяем корректность чтения JSON данных из файла."""
     data = read_json(sample_json_data)
     assert isinstance(data, list)
-    assert data[0]["name"] == "Смартфоны"
-    assert data[0]["products"][0]["name"] == "Samsung Galaxy S23 Ultra"
+    assert data[0]["name"] == "Телевизоры"
+    assert data[0]["products"][0]["name"] == "Телевизор LG OLED55C1"
 
 
 def test_create_objects_from_json(sample_json_data):
@@ -18,13 +18,13 @@ def test_create_objects_from_json(sample_json_data):
 
     assert len(categories) == 1
     assert isinstance(categories[0], Category)
-    assert categories[0].name == "Смартфоны"
-    assert categories[0].description == "Категория смартфонов"
+    assert categories[0].name == "Телевизоры"
+    assert categories[0].description == "Категория телевизоров"
     assert len(categories[0]._Category__products) == 2
 
     product = categories[0]._Category__products[0]
     assert isinstance(product, Product)
-    assert product.name == "Samsung Galaxy S23 Ultra"
-    assert product.description == "256GB, Серый цвет, 200MP камера"
-    assert product.price == 180000.0
-    assert product.quantity == 5
+    assert product.name == "Телевизор LG OLED55C1"
+    assert product.description == "55-дюймовый 4K UHD, OLED дисплей, HDR10, AI Sound Pro"
+    assert product.price == 120000.0
+    assert product.quantity == 10

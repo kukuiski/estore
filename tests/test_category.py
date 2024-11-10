@@ -1,32 +1,37 @@
+import pytest
+
 from estore.product import Product
 
 
-def test_category_initialization(category_smartphones):
+def test_category_initialization(category_tvs):
     """Тестируем начальную инициализацию категории и количество продуктов."""
-    assert category_smartphones.name == "Смартфоны"
+    assert category_tvs.name == "Телевизоры"
     assert (
-        category_smartphones.description
-        == "Смартфоны, как средство не только коммуникации, но и получения дополнительных функций для удобства жизни"
+        category_tvs.description
+        == "Телевизоры для дома с высокой четкостью изображения и умными функциями для развлечений."
     )
-    assert len(category_smartphones._Category__products) == 2
+    assert len(category_tvs._Category__products) == 2
 
 
-def test_category_add_product(category_smartphones):
+def test_category_add_product(category_tvs):
     """Тестируем добавление нового продукта в категорию."""
-    new_product = Product("Xiaomi 13", "128GB, Черный цвет", 70000.0, 10)
-    category_smartphones.add_product(new_product)
-    assert len(category_smartphones._Category__products) == 3
-    assert "Xiaomi 13, 70000.0 руб. Остаток: 10 шт." in category_smartphones.products
+    new_product = Product("Sony Bravia XR", "75-дюймовый, 4K UHD, Full Array LED", 220000.0, 5)
+    category_tvs.add_product(new_product)
+    assert len(category_tvs._Category__products) == 3
+    assert "Sony Bravia XR, 220000.0 руб. Остаток: 5 шт." in category_tvs.products
+    with pytest.raises(TypeError):
+        category_tvs.add_product("Новый продукт")
 
 
-def test_category_str(category_smartphones):
+def test_category_str(category_tvs):
     """Тестируем преобразование категории в строку"""
-    assert str(category_smartphones) == "Смартфоны, количество продуктов: 13 шт."
+    assert str(category_tvs) == "Телевизоры, количество продуктов: 17 шт."
 
 
-def test_category_products(category_smartphones):
+def test_category_products(category_tvs):
     """Тестируем вывод списка продуктов в категории"""
     expected_output = (
-        "Samsung Galaxy S23 Ultra, 180000.0 руб. Остаток: 5 шт.\n" "Iphone 15, 210000.0 руб. Остаток: 8 шт.\n"
+        "Телевизор LG OLED55C1, 120000.0 руб. Остаток: 10 шт.\n"
+        "Телевизор Samsung QN90A, 160000.0 руб. Остаток: 7 шт.\n"
     )
-    assert category_smartphones.products == expected_output
+    assert category_tvs.products == expected_output
