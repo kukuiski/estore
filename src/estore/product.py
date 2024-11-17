@@ -20,8 +20,12 @@ class Product:
         return f"{self.name}, {self.__price} руб. Остаток: {self.quantity} шт."
 
     def __add__(self, other: Product) -> float:
-        """Сложение двух продуктов, в результате получем общую стоимость всего имеющегося количества продуктов"""
-        return self.__price * self.quantity + other.__price * other.quantity
+        """Сложение двух продуктов, в результате получаем общую стоимость всего имеющегося количества продуктов.
+        Реализована проверка соответствия типу"""
+        if type(other) is type(self):
+            return self.price * self.quantity + other.price * other.quantity
+        else:
+            raise TypeError
 
     @classmethod
     def new_product(cls, product: dict) -> Product:
