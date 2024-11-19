@@ -30,7 +30,7 @@ def test_product_new_product():
         "name": "Дрель Bosch Professional GBH 2-28 F",
         "description": "Перфоратор SDS-plus, мощность 880 Вт, 3 режима работы, корпус из металла",
         "price": 8500.0,
-        "quantity": 25
+        "quantity": 25,
     }
     product = Product.new_product(product_data)
 
@@ -54,4 +54,4 @@ def test_product_add(product_tv_lg, product_drill_bosh):
 def test_product_add_typeerror(product_tv_lg):
     """Тестируем исключение при сложении объектов разных типов"""
     with pytest.raises(TypeError):
-        result = product_tv_lg + 1
+        _ = product_tv_lg + 1

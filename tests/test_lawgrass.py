@@ -20,4 +20,4 @@ def test_lawn_grass_addition(product_trava_elitnaya, product_trava_vinoslivaya):
 def test_lawn_grass_addition_typeerror(product_trava_elitnaya):
     """Тестируем исключение при сложении объектов разных типов."""
     with pytest.raises(TypeError):
-        result = product_trava_elitnaya + 1
+        _ = product_trava_elitnaya + 1
