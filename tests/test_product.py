@@ -55,3 +55,9 @@ def test_product_add_typeerror(product_tv_lg):
     """Тестируем исключение при сложении объектов разных типов"""
     with pytest.raises(TypeError):
         _ = product_tv_lg + 1
+
+
+def test_zero_quantity():
+    with pytest.raises(ValueError) as e:
+        Product("Бракованный товар", "Неверное количество", 1000.0, 0)
+    assert str(e.value) == "Товар с нулевым количеством не может быть добавлен"

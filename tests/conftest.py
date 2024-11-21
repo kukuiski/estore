@@ -63,6 +63,12 @@ def category_tvs():
 
 
 @pytest.fixture
+def empty_category():
+    """Фикстура для пустой категории"""
+    return Category("Пустая категория", "Категория без продуктов", [])
+
+
+@pytest.fixture
 def sample_json_data(tmp_path):
     """Создает временный JSON-файл с тестовыми данными и возвращает путь к нему."""
     data = [
