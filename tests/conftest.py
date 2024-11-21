@@ -3,9 +3,9 @@ import json
 import pytest
 
 from estore.category import Category
+from estore.lawngrass import LawnGrass
 from estore.product import Product
 from estore.smartphone import Smartphone
-from estore.lawngrass import LawnGrass
 
 
 @pytest.fixture
@@ -17,8 +17,12 @@ def product_tv_lg():
 @pytest.fixture
 def product_drill_bosh():
     """Фикстура для продукта Xiaomi"""
-    return Product("Дрель Bosch Professional GBH 2-28 F",
-                   "Перфоратор SDS-plus, мощность 880 Вт, 3 режима работы, корпус из металла", 8500.0, 25)
+    return Product(
+        "Дрель Bosch Professional GBH 2-28 F",
+        "Перфоратор SDS-plus, мощность 880 Вт, 3 режима работы, корпус из металла",
+        8500.0,
+        25,
+    )
 
 
 @pytest.fixture
@@ -35,8 +39,9 @@ def product_trava_vinoslivaya():
 
 @pytest.fixture
 def product_smartphone_samsung():
-    return Smartphone("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5,
-                      "S23 Ultra", 256, "Серый")
+    return Smartphone(
+        "Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5, 95.5, "S23 Ultra", 256, "Серый"
+    )
 
 
 @pytest.fixture

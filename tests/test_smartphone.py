@@ -21,4 +21,4 @@ def test_smartphone_addition(product_smartphone_samsung, product_smartphone_ipho
 def test_smartphone_addition_typeerror(product_smartphone_samsung):
     """Тестируем исключение при сложении объектов разных типов."""
     with pytest.raises(TypeError):
-        result = product_smartphone_samsung + 1
+        _ = product_smartphone_samsung + 1

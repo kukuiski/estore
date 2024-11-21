@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+from estore.baseproduct import BaseProduct
+from estore.mixinlog import MixinLog
 
-class Product:
+
+class Product(BaseProduct, MixinLog):
     """Класс продукта"""
 
     name: str
@@ -10,6 +13,7 @@ class Product:
     quantity: int
 
     def __init__(self, name, description, price, quantity):
+        super().__init__(name, description, price, quantity)
         self.name = name
         self.description = description
         self.__price = price
