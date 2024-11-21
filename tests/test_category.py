@@ -35,3 +35,9 @@ def test_category_products(category_tvs):
         "Телевизор Samsung QN90A, 160000.0 руб. Остаток: 7 шт.\n"
     )
     assert category_tvs.products == expected_output
+
+
+def test_category_average_price(category_tvs, empty_category):
+    """Тестируем среднюю стоимость продуктов в категории"""
+    assert category_tvs.average_price() == 140000.0
+    assert empty_category.average_price() == 0

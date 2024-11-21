@@ -34,6 +34,10 @@ class Category:
             raise TypeError
         return None
 
+    def average_price(self):
+        """Возвращаем среднюю стоимость продуктов или 0, если продуктов в категории нет"""
+        return sum([p.price for p in self.__products]) / len(self.__products) if len(self.__products) else 0
+
     @property
     def products(self):
         """Получение информации о продуктах в виде строки"""
